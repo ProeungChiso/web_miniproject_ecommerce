@@ -1,7 +1,10 @@
-import Image from "next/image";
-
+import CardProductComponent from "@/components/Card/CardProductComponent";
+import HeroSectionComponent from "@/components/HeroSection/HeroSectionComponent";
 export default function Home() {
   return (
-      <h1 className=" text-red-800">Hello</h1>
-  );
+      <div>
+          <HeroSectionComponent/>
+          <CardProductComponent/>
+      </div>
+  )
 }
