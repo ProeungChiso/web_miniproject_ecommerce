@@ -48,6 +48,11 @@ export default function NavbarComponent() {
                         Products
                     </Link>
                 </NavbarItem>
+                <NavbarItem>
+                    <Link color="foreground" href="#">
+                        About us
+                    </Link>
+                </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem className="hidden lg:flex">
