@@ -1,5 +1,4 @@
 import {Button} from "@nextui-org/react";
-
 export default function HeroSectionComponent(){
     return (
         <section className="bg-hero-section">

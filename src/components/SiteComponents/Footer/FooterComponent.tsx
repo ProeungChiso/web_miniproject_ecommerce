@@ -2,8 +2,13 @@
 
 import { Footer } from "flowbite-react";
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import {usePathname} from "next/navigation";
 
 export default function FooterComponent() {
+    const pathName = usePathname();
+    if(pathName === "/dashboard"){
+        return null
+    }
     return (
         <Footer container>
             <div className="w-full mt-10">
