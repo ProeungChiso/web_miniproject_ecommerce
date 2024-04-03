@@ -6,7 +6,7 @@ import {usePathname} from "next/navigation";
 
 export default function FooterComponent() {
     const pathName = usePathname();
-    if(pathName === "/dashboard"){
+    if(pathName === "/dashboard" ){
         return null
     }
     return (
@@ -25,8 +25,8 @@ export default function FooterComponent() {
                         <div>
                             <Footer.Title title="Best to visit" />
                             <Footer.LinkGroup col>
-                                <Footer.Link href="#">Best Selling</Footer.Link>
-                                <Footer.Link href="#">Products</Footer.Link>
+                                <Footer.Link href="/best-seller">Best Selling</Footer.Link>
+                                <Footer.Link href="/products">Products</Footer.Link>
                             </Footer.LinkGroup>
                         </div>
                         <div>
@@ -39,7 +39,7 @@ export default function FooterComponent() {
                         <div>
                             <Footer.Title title="Legal" />
                             <Footer.LinkGroup col>
-                                <Footer.Link href="#">Privacy Policy</Footer.Link>
+                                <Footer.Link href="/policy">Privacy Policy</Footer.Link>
                                 <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
                             </Footer.LinkGroup>
                         </div>
