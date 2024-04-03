@@ -1,7 +1,17 @@
 'use client'
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
-import {AcmeLogo} from "../../../../public/images/AcmeLogo";
+import {
+    Navbar,
+    NavbarBrand,
+    NavbarContent,
+    NavbarItem,
+    NavbarMenuToggle,
+    NavbarMenu,
+    NavbarMenuItem,
+    Link,
+    Button,
+    Image
+} from "@nextui-org/react";
 import {usePathname} from "next/navigation";
 
 export default function NavbarComponent() {
@@ -30,7 +40,6 @@ export default function NavbarComponent() {
                     className="sm:hidden"
                 />
                 <NavbarBrand>
-                    <AcmeLogo />
                     <p className="font-bold text-inherit"><span className="text-violet-800">Among</span>-Ecommerce</p>
                 </NavbarBrand>
             </NavbarContent>
