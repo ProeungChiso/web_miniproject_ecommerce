@@ -14,17 +14,17 @@ export default function NotFound(){
                                     <p className="my-2 text-gray-800">Sorry about that! Please visit our homepage to get
                                         where you need to go.</p>
                                     <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-violet-800 text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50">
-                                        Take me there!
+                                        <a href="/">Take me there!</a>
                                     </button>
                                 </div>
                             </div>
                             <div>
-                                <img src="https://i.ibb.co/G9DC8S0/404-2.png"/>
+                                <img src="https://i.ibb.co/G9DC8S0/404-2.png" alt="404"/>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <img src="https://i.ibb.co/ck1SGFJ/Group.png"/>
+                        <img src="https://i.ibb.co/ck1SGFJ/Group.png" alt="group"/>
                     </div>
                 </div>
             </div>

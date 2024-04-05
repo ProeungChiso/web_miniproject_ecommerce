@@ -1,7 +1,7 @@
 export default function Policy(){
     return(
         <>
-            <div className="container mx-auto px-20">
+            <div className="container mx-auto px-5 md:px-10 lg:px-20">
                 <h1 className="text-2xl text-center font-bold my-10">Privacy Policy</h1>
                 <p>At <span className="font-bold text-violet-800 text-wrap">Among-Ecommerce</span> Website, we
                     understand the importance of your privacy and are committed to protecting your personal information.

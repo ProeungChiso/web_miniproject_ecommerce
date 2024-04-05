@@ -1,7 +1,8 @@
 import React from "react";
 import {Image} from "@nextui-org/react";
-export default function AboutUs(){
-    return(
+
+export default function AboutUs() {
+    return (
         <>
             <section id="aboutContent">
                 <div className="container mx-auto">
@@ -25,6 +26,29 @@ export default function AboutUs(){
                             everyone deserves to wear clothes that not only look fabulous but feel comfortable and are
                             made to last.
                         </p>
+                        <div className="bg-hero-section py-10 rounded-md mt-10">
+                            <h5 className="text-xl md:text-2xl font-bold mb-2 text-center">
+                                Why Choose Among-Ecommerce?
+                            </h5>
+                            <ul className="list-disc px-5 text-gray-600">
+                                <li className="mb-2">
+                                    Quality You Can Trust: Each piece is crafted with attention to detail and quality
+                                    materials to ensure it lasts through the seasons.
+                                </li>
+                                <li className="mb-2">
+                                    Fashion-Forward: Our designs blend current trends with timeless style, so you are
+                                    always in vogue.
+                                </li>
+                                <li className="mb-2">
+                                    Inclusive Sizing: We celebrate diversity and offer a wide range of sizes to ensure
+                                    everyone finds their perfect fit.
+                                </li>
+                                <li>
+                                    Exceptional Service: Our customer care team is dedicated to providing you with a
+                                    seamless shopping experience, from browsing to checkout and beyond.
+                                </li>
+                            </ul>
+                        </div>
                         <h5 className="text-xl md:text-2xl font-bold mt-10 mb-2">- Our Mission</h5>
                         <p className="text-wrap text-sm md:text-xl text-justify text-gray-600">
                             At
@@ -42,10 +66,12 @@ export default function AboutUs(){
                             everyone. Our offerings include:
                         </p>
                         <ul className="list-disc px-5 text-gray-500">
-                            <li>For Women: From elegant dresses and blouses to comfortable leggings and cardigans, our
+                            <li className="mb-2">For Women: From elegant dresses and blouses to comfortable leggings and
+                                cardigans, our
                                 women collection is designed to make you look and feel your best, every day.
                             </li>
-                            <li>For Men: Discover our selection of shirts, trousers, jackets, and more that combine
+                            <li className="mb-2">For Men: Discover our selection of shirts, trousers, jackets, and more
+                                that combine
                                 classic style with modern comfort.
                             </li>
                             <li>Unisex and Accessories: Complete your look with our range of accessories and unisex
@@ -56,9 +82,11 @@ export default function AboutUs(){
                             - Sustainability at Our Core
                         </h5>
                         <p className="text-wrap text-sm md:text-xl text-justify text-gray-600 mb-5">
-                            We are not just about looking good.<span className="text-violet-800 font-bold"> Among-Ecommerce </span>is committed to sustainability and ethical practices. We carefully select eco-friendly materials and work closely with manufacturers who share our values of respect for people and the planet.
+                            We are not just about looking good.<span
+                            className="text-violet-800 font-bold"> Among-Ecommerce </span>is committed to sustainability
+                            and ethical practices. We carefully select eco-friendly materials and work closely with
+                            manufacturers who share our values of respect for people and the planet.
                         </p>
-
                     </section>
                 </div>
             </section>

@@ -13,23 +13,12 @@ import {
     Image
 } from "@nextui-org/react";
 import {usePathname} from "next/navigation";
+import {navigateItems} from "@/types/navigation";
 
 export default function NavbarComponent() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    const menuItems = [
-        "Profile",
-        "Dashboard",
-        "Activity",
-        "Analytics",
-        "System",
-        "Deployments",
-        "My Settings",
-        "Team Settings",
-        "Help & Feedback",
-        "Log Out",
-    ];
     const pathName = usePathname();
-    if(pathName === "/dashboard"){
+    if(pathName === "/dashboard" || pathName === "/login" || pathName === "/register"){
         return null
     }
     return (
@@ -44,52 +33,45 @@ export default function NavbarComponent() {
                 </NavbarBrand>
             </NavbarContent>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                <NavbarItem>
-                    <Link color="foreground" href="/">
-                        Home
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="/best-seller">
-                        Best Seller
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="/products">
-                        Products
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="/about-us">
-                        About us
-                    </Link>
-                </NavbarItem>
+                {navigateItems.map((item, index: any) => (
+                    <NavbarItem key={index}>
+                        <Link
+                            color="foreground"
+                            href={item.path}
+                            className={`${
+                                pathName === item.path && "font-bold text-violet-800"
+                            }`}
+                        >
+                            {item.title}
+                        </Link>
+                    </NavbarItem>
+                ))}
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem className="hidden lg:flex">
                     <Link href="/dashboard" className="text-violet-800">Go Dashboard</Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Button as={Link} className="bg-violet-800 text-white" href="#" variant="flat">
-                        Login
+                    <Button as={Link} className="bg-violet-800 text-white" href="/register" variant="flat">
+                        Register
                     </Button>
                 </NavbarItem>
             </NavbarContent>
             <NavbarMenu>
-                {menuItems.map((item, index) => (
+                {navigateItems.map((item, index) => (
                     <NavbarMenuItem key={`${item}-${index}`}>
                         <Link
-                            color={
-                                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-                            }
                             className="w-full"
-                            href="#"
+                            href={item.path}
                             size="lg"
                         >
-                            {item}
+                            {item.title}
                         </Link>
                     </NavbarMenuItem>
                 ))}
+                <NavbarItem>
+                    <Link href="/dashboard" size="lg">Go Dashboard</Link>
+                </NavbarItem>
             </NavbarMenu>
         </Navbar>
     );

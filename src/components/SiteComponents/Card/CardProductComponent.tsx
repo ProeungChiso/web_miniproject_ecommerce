@@ -1,76 +1,26 @@
-'use client'
 import React from "react";
-import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
+import {Button, Card, CardBody, CardFooter, Image, Link} from "@nextui-org/react";
 
-export default function CardProductComponent() {
-    const list = [
-        {
-            title: "Orange",
-            img: "/images/fruit-1.jpeg",
-            price: "$5.50",
-        },
-        {
-            title: "Tangerine",
-            img: "/images/fruit-2.jpeg",
-            price: "$3.00",
-        },
-        {
-            title: "Raspberry",
-            img: "/images/fruit-3.jpeg",
-            price: "$10.00",
-        },
-        {
-            title: "Lemon",
-            img: "/images/fruit-4.jpeg",
-            price: "$5.30",
-        },
-        {
-            title: "Avocado",
-            img: "/images/fruit-5.jpeg",
-            price: "$15.70",
-        },
-        {
-            title: "Lemon 2",
-            img: "/images/fruit-6.jpeg",
-            price: "$8.00",
-        },
-        {
-            title: "Banana",
-            img: "/images/fruit-7.jpeg",
-            price: "$7.50",
-        },
-        {
-            title: "Watermelon",
-            img: "/images/fruit-8.jpeg",
-            price: "$12.20",
-        },
-    ];
-
+export default function CardProductComponent({name, image, price}: productType) {
     return (
-        <>
-            <div className="container mx-auto">
-                <h1 className="text-center text-2xl font-bold my-10">Our Products</h1>
-                <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                    {list.map((item, index) => (
-                        <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
-                            <CardBody className="overflow-visible p-0">
-                                <Image
-                                    shadow="sm"
-                                    radius="lg"
-                                    width="100%"
-                                    alt={item.title}
-                                    className="w-full object-cover h-[140px]"
-                                    src={item.img}
-                                />
-                            </CardBody>
-                            <CardFooter className="text-small justify-between">
-                                <b>{item.title}</b>
-                                <p className="text-default-500">{item.price}</p>
-                            </CardFooter>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-        </>
+        <Card shadow="sm" className="w-full mx-5 lg:mx-0">
+            <CardBody className="overflow-visible p-0">
+                <Image
+                    shadow="sm"
+                    radius="lg"
+                    width="100%"
+                    alt={name}
+                    className="w-full object-cover h-[140px]"
+                    src={image}
+                />
+            </CardBody>
+            <CardFooter className="text-small flex-col items-start">
+                <b>{name}</b>
+                <p className="text-default-500 mb-2">{price} $</p>
+                <button className="bg-violet-800 p-2 rounded-lg text-gray-50">
+                    Add to cart
+                </button>
+            </CardFooter>
+        </Card>
     );
 }
