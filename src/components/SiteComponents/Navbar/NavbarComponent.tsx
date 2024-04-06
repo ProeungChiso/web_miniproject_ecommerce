@@ -18,7 +18,7 @@ import {navigateItems} from "@/types/navigation";
 export default function NavbarComponent() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const pathName = usePathname();
-    if(pathName === "/dashboard" || pathName === "/login" || pathName === "/register"){
+    if(pathName === "/dashboard" || pathName === "/login" || pathName === "/register" || pathName === "/dashboard/create-product") {
         return null
     }
     return (

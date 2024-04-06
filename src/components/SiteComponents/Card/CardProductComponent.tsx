@@ -1,5 +1,6 @@
 import React from "react";
-import {Button, Card, CardBody, CardFooter, Image, Link} from "@nextui-org/react";
+import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
+import {productType} from "@/types/product";
 
 export default function CardProductComponent({name, image, price}: productType) {
     return (

@@ -1,5 +1,6 @@
 import CardProductComponent from "@/components/SiteComponents/Card/CardProductComponent";
 import HeroSectionComponent from "@/components/SiteComponents/HeroSection/HeroSectionComponent";
+import {productType} from "@/types/product";
 import {Link} from "@nextui-org/react";
 import React from "react";
 

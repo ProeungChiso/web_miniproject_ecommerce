@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
+    "axios": "^1.6.8",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.8",
     "formik": "^2.4.5",

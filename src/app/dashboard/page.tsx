@@ -1,5 +1,5 @@
 import React from "react";
-import ProductTable from "@/components/SiteComponents/Tables/ProductTable";
+import ProductTable from "@/components/DashboardComponents/Tables/ProductTable";
 
 const Dashboard = () => {
     return (
