@@ -1,10 +1,13 @@
 import CardProductComponent from "@/components/SiteComponents/Card/CardProductComponent";
 import HeroSectionComponent from "@/components/SiteComponents/HeroSection/HeroSectionComponent";
-import {Card, CardBody, CardFooter, Image, Link} from "@nextui-org/react";
+import {Link} from "@nextui-org/react";
 import React from "react";
 
 async function fetchData() {
-    const data = await fetch("https://store.istad.co/api/products");
+    const data = await fetch("https://store.istad.co/api/products",{
+        method: "GET",
+        cache: "no-store"
+    });
     const res = await data.json();
     return res.results;
 }

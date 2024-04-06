@@ -1,4 +1,4 @@
-import {Button} from "@nextui-org/react";
+import {Button, Link} from "@nextui-org/react";
 export default function HeroSectionComponent(){
     return (
         <section className="bg-hero-section">
@@ -11,7 +11,9 @@ export default function HeroSectionComponent(){
                     Dive into our curated collection of clothes designed to cater to your every need and desire.
                     Discover, indulge, and let your journey of exceptional finds begin here. Happy Shopping!
                 </p>
-                <Button className="bg-violet-800 text-white" variant="flat">Go Best Seller</Button>
+                <Button className="bg-violet-800" variant="flat">
+                    <Link href="/best-seller" className=" text-white">Go Best Seller</Link>
+                </Button>
             </div>
         </section>
     )

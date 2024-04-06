@@ -11,8 +11,8 @@ export default function Error({error, reset,}: {
     }, [error])
     return (
         <div>
-            <div className='flex items-center justify-center min-h-screen from-gray-800 via-greeen-300 to-blue-500 bg-gradient-to-br'>
-                <div className='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
+            <div className='flex items-center justify-center h-auto'>
+                <div className='w-full max-w-lg px-10 my-5 md:my-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
                     <div className='max-w-md mx-auto space-y-6'>
                         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                             <div className="mx-auto max-w-screen-sm text-center">

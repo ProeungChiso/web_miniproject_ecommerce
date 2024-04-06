@@ -9,11 +9,7 @@ export const navigateItems = [
         path: "/about-us"
     },
     {
-        title: "Best Seller",
-        path: "/best-seller"
+        title: "Policy",
+        path: "/policy"
     },
-    {
-        title: "Products",
-        path: "/products"
-    }
 ]
