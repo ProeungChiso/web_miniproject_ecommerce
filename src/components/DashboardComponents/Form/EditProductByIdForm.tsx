@@ -1,12 +1,13 @@
 "use client";
-import {Formik, Form, Field, ErrorMessage} from "formik";
-import React, {useState} from "react";
-import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useState } from "react";
+import * as Yup from "yup"
 import Image from "next/image";
-import axios from "axios";
+import axios  from 'axios';
+import {productDetailType} from "@/types/productDetail";
 
 const FILE_SIZE = 1024 * 1024 * 5;
-const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/webp"];
+const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png", "image/gif"];
 
 const validationSchema = Yup.object().shape({
     image: Yup.mixed()
@@ -27,7 +28,7 @@ const validationSchema = Yup.object().shape({
 
 const fieldStyle = "border border-gray-300 rounded-md";
 
-const CreateProductForm = () => {
+const EditProductForm = (pro:productDetailType) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append(
@@ -54,25 +55,29 @@ const CreateProductForm = () => {
     const handleCreateProduct = async (values: any, imageData: any) => {
         try {
             const imageUrl = await handleSubmitToServer(imageData);
-            const postData = await fetch("https://store.istad.co/api/products/", {
-                method: "POST",
+            console.log("data: ", values);
+            const postData = await fetch(`https://store.istad.co/api/products/${pro.id}/`, {
+                method: "PUT",
                 headers: myHeaders,
                 body: JSON.stringify({
                     ...values,
                     image: imageUrl,
                 }),
             });
+            console.log("post data: ", postData);
         } catch (error) {
             console.log(error);
         }
     };
+
     return (
         <div className="w-full">
             <Formik
-                onSubmit={(values: any, {setSubmitting, resetForm}) => {
+                onSubmit={(values: any, { setSubmitting, resetForm }) => {
+                    console.log(values);
                     const formData = new FormData();
                     formData.append("image", values.image);
-                    handleCreateProduct(values, {image: formData});
+                    handleCreateProduct(values, { image: formData });
                     setSubmitting(false);
                     resetForm();
                 }}
@@ -89,12 +94,12 @@ const CreateProductForm = () => {
                     quantity: 0,
                 }}
             >
-                {({isSubmitting, setFieldValue}) => (
+                {({ isSubmitting, setFieldValue }) => (
                     <Form className="flex m-[30px] flex-col gap-4">
                         <div className="flex flex-col gap-2">
                             <label htmlFor="name">Product Name: </label>
                             <Field
-                                placeholder="T-shirt"
+                                placeholder={pro.name}
                                 className={fieldStyle}
                                 name="name"
                                 type="text"
@@ -103,7 +108,7 @@ const CreateProductForm = () => {
                         <div className="flex flex-col gap-2">
                             <label htmlFor="desc">Description: </label>
                             <Field
-                                placeholder="This is a t-shirt"
+                                placeholder={pro.desc}
                                 className={fieldStyle}
                                 name="desc"
                                 type="text"
@@ -112,7 +117,7 @@ const CreateProductForm = () => {
                         <div className="flex flex-col gap-2">
                             <label htmlFor="price">Price: </label>
                             <Field
-                                placeholder="100"
+                                placeholder={pro.price}
                                 className={fieldStyle}
                                 name="price"
                                 type="number"
@@ -121,7 +126,7 @@ const CreateProductForm = () => {
                         <div className="flex flex-col gap-2">
                             <label htmlFor="price">Quantity: </label>
                             <Field
-                                placeholder="1"
+                                placeholder={pro.quantity}
                                 className={fieldStyle}
                                 name="quantity"
                                 type="number"
@@ -146,7 +151,7 @@ const CreateProductForm = () => {
                                 className="w-full px-4 py-3 bg-violet-800 text-white rounded-md"
                                 disabled={isSubmitting}
                             >
-                                Create
+                                Update
                             </button>
                         </div>
                     </Form>
@@ -156,14 +161,16 @@ const CreateProductForm = () => {
     );
 };
 
-export default CreateProductForm;
+export default EditProductForm;
 
-function CustomInput({field, form, setFieldValue, ...props}: any) {
+// custom Input
+function CustomInput({ field, form, setFieldValue, ...props }: any) {
     const [previewImage, setPreviewImage] = useState<string | undefined>(
         undefined
     );
     const name = field.name;
     const onChange: any = (event: any) => {
+        console.log("event:", event.currentTarget.files);
         const file = event.currentTarget.files[0];
         setFieldValue(name, file);
         setPreviewImage(URL.createObjectURL(file));

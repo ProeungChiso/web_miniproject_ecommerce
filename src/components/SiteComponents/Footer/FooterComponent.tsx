@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 
 export default function FooterComponent() {
     const pathName = usePathname();
-    if (pathName === "/dashboard" || pathName === "/dashboard/create-product") {
+    if (pathName === "/dashboard" || pathName === "/dashboard/create-product" || pathName === "/dashboard/edit-product") {
         return null
     }
     return (
